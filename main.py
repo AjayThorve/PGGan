@@ -29,7 +29,7 @@ if __name__ == "__main__":
     if OPER_FLAG == 0:
 
         fl = [1,2,2,3,3,4,4]
-        r_fl = [1,2,2,3,3,4,4]
+        r_fl = [1,1,2,2,3,3,4]
 
         for i in range(int(FLAGS.flag)):
 
