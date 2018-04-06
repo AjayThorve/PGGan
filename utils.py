@@ -3,6 +3,7 @@ import errno
 import numpy as np
 import scipy
 import scipy.misc
+import matplotlib.image as mpimg
 
 def mkdir_p(path):
     try:
@@ -112,6 +113,16 @@ def transform(image, npx= 64 , is_crop=False, resize_w= 64):
 
     return np.array(cropped_image)/127.5 - 1
 
+def save_generated_images(gen_imgs,size,step):
+    print(gen_imgs.shape)
+    print(size)
+    for i in range(size[0]):
+        directory="Generator_Images"
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+        path=directory+"/"+"generated_images"+"_"+str(step)+"_"+str(i)+".png"
+        scipy.misc.imsave(path, gen_imgs[i])
+        
 def center_crop(x, crop_h, crop_w=None, resize_w=64):
 
     if crop_w is None:

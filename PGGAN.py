@@ -1,6 +1,7 @@
 import tensorflow as tf
 from ops import lrelu, conv2d, fully_connect, upscale, Pixl_Norm, avgpool2d, WScaleLayer, MinibatchstateConcat
 from utils import save_images
+from utils import save_generated_images
 from utils import Cifar10
 import numpy as np
 import scipy
@@ -146,7 +147,7 @@ class PGGAN(object):
             summary_op = tf.summary.merge_all()
             summary_writer = tf.summary.FileWriter(self.log_dir, sess.graph)
 
-            if self.pg != 1 and self.pg != 7:
+            if self.pg != 1 and self.pg != 4:
 
                 if self.trans:
                     self.r_saver.restore(sess, self.read_model_path)
@@ -216,6 +217,60 @@ class PGGAN(object):
             save_path = self.saver.save(sess, self.gan_model_path)
             print ("Model saved in file: %s" % save_path)
 
+        tf.reset_default_graph()
+        
+    def test_generate_new_images(self):
+
+        step_pl = tf.placeholder(tf.float32, shape=None)
+        alpha_tra_assign = self.alpha_tra.assign(step_pl / self.max_iters)
+
+        opti_D = tf.train.AdamOptimizer(learning_rate=self.learning_rate, beta1=0.0 , beta2=0.99).minimize(
+            self.D_loss, var_list=self.d_vars)
+        opti_G = tf.train.AdamOptimizer(learning_rate=self.learning_rate, beta1=0.0 , beta2=0.99).minimize(
+            self.G_loss, var_list=self.g_vars)
+
+        init = tf.global_variables_initializer()
+        config = tf.ConfigProto()
+        config.gpu_options.allow_growth = True
+
+        with tf.Session(config=config) as sess:
+
+            sess.run(init)
+            summary_op = tf.summary.merge_all()
+            summary_writer = tf.summary.FileWriter(self.log_dir, sess.graph)
+
+            self.saver.restore(sess, self.read_model_path)
+
+            step = 0
+            batch_num = 0
+            while step <= self.max_iters:
+
+                # optimization D
+                n_critic = 1
+                if self.pg == 5 and self.trans:
+                    n_critic = 1
+
+                for i in range(n_critic):
+
+                    sample_z = np.random.normal(size=[self.batch_size, self.sample_size])
+                    train_list = self.data_In.getNextBatch(batch_num, self.batch_size)
+                    realbatch_array = Cifar10.getShapeForData(train_list, resize_w=self.output_size)
+
+                # optimization G
+                sess.run(opti_G, feed_dict={self.z: sample_z})
+
+                summary_str = sess.run(summary_op, feed_dict={self.images: realbatch_array, self.z: sample_z})
+                summary_writer.add_summary(summary_str, step)
+                # the alpha of fake_in process
+                sess.run(alpha_tra_assign, feed_dict={step_pl: step})
+
+                
+                fake_image = sess.run(self.fake_images,
+                                      feed_dict={self.images: realbatch_array, self.z: sample_z})
+                fake_image = np.clip(fake_image, -1, 1)
+                save_generated_images(fake_image, fake_image.shape,step)
+#                 save_images(fake_image[0:self.batch_size], [2, self.batch_size/2], '{}/{:02d}_train.png'.format(self.sample_path, step))
+                step += 1
         tf.reset_default_graph()
 
 
