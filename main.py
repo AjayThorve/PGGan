@@ -7,7 +7,7 @@ flags = tf.app.flags
 
 flags.DEFINE_integer("OPER_FLAG", 0, "the flag of opertion: 0 is for training ")
 flags.DEFINE_string("path" , '../data/cifar10', "the path of training data, for example /home/hehe/celebA/")
-flags.DEFINE_integer("batch_size", 16, "batch size")
+flags.DEFINE_integer("batch_size", 64, "batch size")
 flags.DEFINE_integer("max_iters", 32000, "the maxmization of training number")
 flags.DEFINE_float("learn_rate", 0.0001, "the learning rate for G and D networks")
 flags.DEFINE_float("flag", 7, "the FLAG of gan training process")
@@ -28,14 +28,14 @@ if __name__ == "__main__":
 
     if OPER_FLAG == 0:
 
-        fl = [1,2,2,3,3,4,4]
-        r_fl = [1,1,2,2,3,3,4]
-#         fl = [4]
-#         r_fl = [4]
+#         fl = [1,2,2,3,3,4,4]
+#         r_fl = [1,1,2,2,3,3,4]
+        fl = [4]
+        r_fl = [4]
         
         for i in range(int(FLAGS.flag)):
             t = False if (i % 2 == 0) else True
-            #t = False
+#             t = False
             pggan_checkpoint_dir_write = "./model_pggan_{}/{}/".format(OPER_FLAG, fl[i])
             sample_path = "./PGGanCifar10/{}/sample_{}_{}".format(FLAGS.OPER_FLAG, fl[i], t)
             mkdir_p(pggan_checkpoint_dir_write)
