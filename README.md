@@ -13,6 +13,7 @@ To train -> python main.py
 To generate fake images -> python generate_fake.py
 
 References:
+
 [1] https://arxiv.org/pdf/1710.10196.pdf
 
 [2] https://github.com/CQFIO/PhotographicImageSynthesis
