@@ -1,4 +1,4 @@
-## Progressive Growing of GANs for Improved Quality, Stability, and Variation<br><i>
+## Progressive Growing of GANs for Improved Quality, Stability, and Variation<br>
 
 This repository has been forked from: https://github.com/tkarras/progressive_growing_of_gans
 
@@ -28,7 +28,9 @@ your generated fake images would be stored in the results folder.
 the .tfevents file in the results folder can also be used to with tensorboard to visualize various tensors and graphs involved with the architecture.
 
 
+Our results
 
+![celeba](results/024-fake-grids-15/015-pgan-celeba-preset-v2-8gpus-fp16-GRAPH-HIST-network-final-000014.png)
 
  Official TensorFlow implementation of the ICLR 2018 paper</i>
 
