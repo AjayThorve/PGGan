@@ -1,0 +1,21 @@
+Initializing TensorFlow...
+Running util_scripts.evaluate_metrics()...
+Logging output to results/015-pgan-celeba-preset-v2-8gpus-fp16-GRAPH-HIST/metric-msssim-20k.txt
+Streaming data using dataset.TFRecordDataset...
+Dataset shape = [3, 128, 128]
+Dynamic range = [0, 255]
+Label size    = 0
+Initializing metrics.ms_ssim.API...
+
+Snapshot  Time_eval   MS-SSIM   
+---       ---         ---       
+Reals     13m 32s     0.2790    
+5569      14m 33s     0.3719  (Poor distorted image)   
+5449      12m 01s     0.3104   (Best results)
+5389      10m 55s     0.3014    
+5309      11m 02s     0.3009    
+5229      11m 03s     0.3017    
+5149      11m 02s     0.3029    
+5069      11m 02s     0.2993    
+4989      11m 03s     0.3000    
+4909      

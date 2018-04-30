@@ -1,0 +1,14 @@
+Initializing TensorFlow...
+Running util_scripts.evaluate_metrics()...
+Logging output to results/015-pgan-celeba-preset-v2-8gpus-fp16-GRAPH-HIST/metric-fid-10k.txt
+Streaming data using dataset.TFRecordDataset...
+Dataset shape = [3, 128, 128]
+Dynamic range = [0, 255]
+Label size    = 0
+Initializing metrics.frechet_inception_distance.API...
+Downloading Inception model
+
+Snapshot  Time_eval   FID       
+---       ---         ---       
+Reals     4m 16s      0.0000    
+5449      5m 15s      68.6334         
