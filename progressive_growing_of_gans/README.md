@@ -1,33 +1,21 @@
+## Progressive Growing of GANs for Improved Quality, Stability, and Variation<br><i>
+
 This repository has been forked from: https://github.com/tkarras/progressive_growing_of_gans
 
-Project Members:
-Ajay Thorve
-Titash Mandal
-Apurv Srivastav
+### Project Members:
+   1. Ajay Thorve
+   2. Titash Mandal
+   3. Apurv Srivastav
 
 
-We have added a few changes on top of this code to run for celeba and LSUN datasets, and ran the experiments on a 8 tesla k_80 GPU cluster on NYU HPC Prince.
-
-The celeba model was trained for almost 3 days(60+ hours)
-
-The LSUN bedroom model was trained for 2+ days(48+ hours)
+We have added a few changes on top of this code to run for celeba and LSUN datasets, and ran the experiments on a 8 tesla k_80 GPU cluster on NYU HPC Prince.The celeba model was trained for almost 3 days(60+ hours)The LSUN bedroom model was trained for 2+ days(48+ hours).
 
 Results folder contains the results of these two trained models
 
 
 
 
-To generate the images, download the latest model file from https://drive.google.com/open?id=1btBujBTQ3mM6Ti2htT9YnsR5tUhWjR1f for either the celeba or lsun dataset,
-
-
-
-
-
-Edit the config.py file and comment out all the other datasets except the one you want to generate it for.
-
-
-
-Save the model file in a folder called results/001-your-folder-name
+To generate the images, download the latest model file from https://drive.google.com/open?id=1btBujBTQ3mM6Ti2htT9YnsR5tUhWjR1f for either the celeba or lsun dataset,Edit the config.py file and comment out all the other datasets except the one you want to generate it for.Save the model file in a folder called results/001-your-folder-name
 
 uncomment the following line 
 <pre>train = EasyDict(func='util_scripts.generate_fake_images', run_id=1, grid_size=[15,8], num_pngs=15, image_shrink=1); num_gpus = 1; desc = 'fake-grids-' + str(train.run_id)</pre>
@@ -42,7 +30,7 @@ the .tfevents file in the results folder can also be used to with tensorboard to
 
 
 
-## Progressive Growing of GANs for Improved Quality, Stability, and Variation<br><i>– Official TensorFlow implementation of the ICLR 2018 paper</i>
+ Official TensorFlow implementation of the ICLR 2018 paper</i>
 
 **Tero Karras** (NVIDIA), **Timo Aila** (NVIDIA), **Samuli Laine** (NVIDIA), **Jaakko Lehtinen** (NVIDIA and Aalto University)
 
