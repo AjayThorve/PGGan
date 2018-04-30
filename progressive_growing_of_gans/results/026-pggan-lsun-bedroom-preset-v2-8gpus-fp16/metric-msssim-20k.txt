@@ -1,0 +1,17 @@
+Initializing TensorFlow...
+Running util_scripts.evaluate_metrics()...
+Logging output to results/011-pgan-lsun-bedroom-preset-v2-8gpus-fp16-GRAPH-HIST/metric-msssim-20k.txt
+Streaming data using dataset.TFRecordDataset...
+Dataset shape = [3, 256, 256]
+Dynamic range = [0, 255]
+Label size    = 0
+Initializing metrics.ms_ssim.API...
+
+Snapshot  Time_eval   MS-SSIM   
+---       ---         ---       
+Reals     52m 21s     0.0761    
+6480      56m 07s     0.0779    
+6420      56m 52s     0.0792    
+6360      56m 19s     0.0774    
+6300      56m 43s     0.0782    
+6240      

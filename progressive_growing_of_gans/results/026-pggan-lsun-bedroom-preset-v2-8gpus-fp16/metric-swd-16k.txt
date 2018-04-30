@@ -1,0 +1,24 @@
+Initializing TensorFlow...
+Running util_scripts.evaluate_metrics()...
+Logging output to results/011-pgan-lsun-bedroom-preset-v2-8gpus-fp16-GRAPH-HIST/metric-swd-16k.txt
+Streaming data using dataset.TFRecordDataset...
+Dataset shape = [3, 256, 256]
+Dynamic range = [0, 255]
+Label size    = 0
+Initializing metrics.sliced_wasserstein.API...
+
+Snapshot  Time_eval   SWDx1e3_256  SWDx1e3_128  SWDx1e3_64   SWDx1e3_32   SWDx1e3_16   SWDx1e3_avg  
+---       ---         ---          ---          ---          ---          ---          ---          
+Reals     29m 32s     0.0000       0.0000       0.0000       0.0000       0.0000       0.0000       
+Reals2    29m 46s     2.8986       1.7229       2.0402       2.3495       4.3466       2.6715       
+6480      37m 35s     3.0496       2.6021       3.6053       4.9085       6.2216       4.0774       
+6420      31m 17s     27.8973      10.5142      4.6093       4.1145       11.8214      11.7913      
+6360      31m 14s     26.7760      10.3909      4.5192       4.3227       11.6263      11.5270      
+6300      31m 14s     29.0113      11.4037      4.5509       4.3127       13.5888      12.5735      
+6240      31m 14s     26.4360      11.3784      5.1283       4.6576       12.3191      11.9839      
+6180      31m 14s     29.9347      12.4172      5.0660       4.0344       12.3560      12.7617      
+6120      31m 15s     28.4609      12.3598      4.6477       4.2243       14.0006      12.7387      
+6060      31m 15s     28.1857      12.2822      4.5385       4.4175       15.0396      12.8927      
+6000      31m 13s     25.0886      9.4218       4.9533       6.7956       18.3311      12.9181      
+
+Exiting...
