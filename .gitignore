@@ -1,3 +1,6 @@
 train/*
 */*
 Generator_Images/*
+progressive_growing_of_gans/datasets
+progressive_growing_of_gans/results
+*.pkl
