@@ -32,6 +32,8 @@ Our results
 
 ![celeba](results/024-fake-grids-15/015-pgan-celeba-preset-v2-8gpus-fp16-GRAPH-HIST-network-final-000014.png)
 
+![lsun](results/026-pggan-lsun-bedroom-preset-v2-8gpus-fp16/fakes006560.png)
+
  Official TensorFlow implementation of the ICLR 2018 paper</i>
 
 **Tero Karras** (NVIDIA), **Timo Aila** (NVIDIA), **Samuli Laine** (NVIDIA), **Jaakko Lehtinen** (NVIDIA and Aalto University)
