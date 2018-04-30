@@ -2,6 +2,8 @@
 
 Authors: Titash, Ajay and Apurv
 
+## Important: Please see progressive_growing_of_gans folder for final project implementation and experiments
+
 Current results: Inception score on 48k generated fake images -> 6.33 +/- 0.013
 
 Requirements:
